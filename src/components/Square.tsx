@@ -11,70 +11,41 @@ export interface SquareProp {
 }
 
 const CheckWin = (boardState: Array<string>, player: Player): boolean => {
-  if (player === Player.O) {
-    if (
-      (boardState[0] === boardState[1] &&
-        boardState[2] === "◯" &&
-        boardState[0] === boardState[2]) ||
-      (boardState[3] === boardState[4] &&
-        boardState[5] === "◯" &&
-        boardState[3] === boardState[5]) ||
-      (boardState[6] === boardState[7] &&
-        boardState[8] === "◯" &&
-        boardState[6] === boardState[8]) ||
-      (boardState[0] === boardState[3] &&
-        boardState[6] === "◯" &&
-        boardState[0] === boardState[6]) ||
-      (boardState[1] === boardState[4] &&
-        boardState[7] === "◯" &&
-        boardState[1] === boardState[7]) ||
-      (boardState[2] === boardState[5] &&
-        boardState[8] === "◯" &&
-        boardState[2] === boardState[8]) ||
-      (boardState[0] === boardState[4] &&
-        boardState[8] === "◯" &&
-        boardState[0] === boardState[8]) ||
-      (boardState[2] === boardState[4] &&
-        boardState[6] === "◯" &&
-        boardState[2] === boardState[6])
-    ) {
-      return true;
-    }
-  } else {
-    if (
-      (boardState[0] === boardState[1] &&
-        boardState[2] === "×" &&
-        boardState[0] === boardState[2]) ||
-      (boardState[3] === boardState[4] &&
-        boardState[5] === "×" &&
-        boardState[3] === boardState[5]) ||
-      (boardState[6] === boardState[7] &&
-        boardState[8] === "×" &&
-        boardState[6] === boardState[8]) ||
-      (boardState[0] === boardState[3] &&
-        boardState[6] === "×" &&
-        boardState[0] === boardState[6]) ||
-      (boardState[1] === boardState[4] &&
-        boardState[7] === "×" &&
-        boardState[1] === boardState[7]) ||
-      (boardState[2] === boardState[5] &&
-        boardState[8] === "×" &&
-        boardState[2] === boardState[8]) ||
-      (boardState[0] === boardState[4] &&
-        boardState[8] === "×" &&
-        boardState[0] === boardState[8]) ||
-      (boardState[2] === boardState[4] &&
-        boardState[6] === "×" &&
-        boardState[2] === boardState[6])
-    ) {
-      return true;
-    }
+  let param = "◯";
+  if (player === Player.X) param = "×";
+
+  if (
+    (boardState[0] === boardState[1] &&
+      boardState[2] === param &&
+      boardState[0] === boardState[2]) ||
+    (boardState[3] === boardState[4] &&
+      boardState[5] === param &&
+      boardState[3] === boardState[5]) ||
+    (boardState[6] === boardState[7] &&
+      boardState[8] === param &&
+      boardState[6] === boardState[8]) ||
+    (boardState[0] === boardState[3] &&
+      boardState[6] === param &&
+      boardState[0] === boardState[6]) ||
+    (boardState[1] === boardState[4] &&
+      boardState[7] === param &&
+      boardState[1] === boardState[7]) ||
+    (boardState[2] === boardState[5] &&
+      boardState[8] === param &&
+      boardState[2] === boardState[8]) ||
+    (boardState[0] === boardState[4] &&
+      boardState[8] === param &&
+      boardState[0] === boardState[8]) ||
+    (boardState[2] === boardState[4] &&
+      boardState[6] === param &&
+      boardState[2] === boardState[6])
+  ) {
+    return true;
   }
   return false;
 };
 
 const Square: React.FC<SquareProp> = (props) => {
-  console.log(props.boardState);
   const [squareState, setSquareValue] = useState(false);
   const handleClick = () => {
     if (squareState === false) {
@@ -99,8 +70,6 @@ const Square: React.FC<SquareProp> = (props) => {
           }
           break;
       }
-      console.log(props.boardState[props.index]);
-      console.log(props);
     }
   };
 

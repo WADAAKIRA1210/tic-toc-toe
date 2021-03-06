@@ -1,13 +1,13 @@
 import React from "react";
 import Board from "./Board";
-import Player from "./Player";
+import test from "./test.css";
+
 
 const App: React.FC  = () => {
   return (
-    <>
-      {/* <Player /> */}
+    <div className={test.game}>
       <Board />
-    </>
+    </div>
   );
 };
 export default App;

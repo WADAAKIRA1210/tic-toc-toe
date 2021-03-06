@@ -3,10 +3,10 @@ import Square from "./Square";
 import test from "./test.css";
 
 export enum Player {
-  X = "Player ×",
-  O = "Player ◯",
-  WO = "Winner ◯",
-  WX = "Winner ×"
+  X = "Player X",
+  O = "Player O",
+  WX = "Winner X",
+  WO = "Winner O",
 }
 
 const Board: React.FC = () => {
